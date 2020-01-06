@@ -1,5 +1,6 @@
 var notesData = require ("../data/db.json");
 var fs = require ("fs");
+
 module.exports = function (app) {
 
 app.get("/api/notes", function (req, res) {
@@ -8,7 +9,7 @@ app.get("/api/notes", function (req, res) {
     res.json(notesData);
 });
 
-//fs.writefile here to store to json file
+
 
 app.post("/api/notes", function (req, res) {
     var id = notesData[notesData.length - 1].id +1;
@@ -37,7 +38,7 @@ var tempNotes = [];
     };
 
 
-    notesData.delete(req.body);
+    notesData[i].delete(req.body);
     res.json(true);
 });
 
